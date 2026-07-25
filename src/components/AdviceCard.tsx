@@ -9,14 +9,14 @@ const AdviceCard = () => {
 
 const [advice , setAdvice] = useState<AdviceResponse["slip"] | null>(null)
 const [loading, setLoading] = useState<boolean>(false)
-const [isFetching, setIsFetching] = useState<boolean>(false);
+
 
 
 
 const getAdvice = async () => {
     setLoading(true);
     setAdvice(null); 
-    // setIsFetching(true);
+
     try {
         const response = await fetch("https://api.adviceslip.com/advice");
 
@@ -30,7 +30,7 @@ const getAdvice = async () => {
         console.error("Error fetching advice:", error);
     } finally {
         setLoading(false);
-        // setIsFetching(false);
+
     }
 };
 
