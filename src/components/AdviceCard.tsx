@@ -2,16 +2,9 @@ import { useEffect, useState } from "react"
 import type { AdviceResponse } from "../types/advice"
 import { FaDice } from "react-icons/fa";
 
-
-
-
 const AdviceCard = () => {
-
 const [advice , setAdvice] = useState<AdviceResponse["slip"] | null>(null)
 const [loading, setLoading] = useState<boolean>(false)
-
-
-
 
 const getAdvice = async () => {
     setLoading(true);
@@ -30,7 +23,6 @@ const getAdvice = async () => {
         console.error("Error fetching advice:", error);
     } finally {
         setLoading(false);
-
     }
 };
 
@@ -39,37 +31,13 @@ getAdvice();
 },
 []);
 
-
   return (
-    <div 
-    className="w-full max-w-[540px] bg-[#313A49] rounded-2xl 
+    <div className="w-full max-w-[540px] bg-[#313A49] rounded-2xl 
     px-8 pt-10 pb-16 text-center shadow-xl relative">
-      {/* <p className="text-[53FFAA] tracking-[4px] uppercase font-bold text-[13px]
-      mb-6">Advice #{advice?.id}</p> */}
+    
 
-{/* <p className="text-[#53FFAA] tracking-[4px] uppercase font-bold text-[13px] mb-6">
-  {loading ? (
-    <span className="animate-pulse">Advice #...</span>
-  ) : (
-    `Advice #${advice?.id}`
-  )}
-</p>
-
-
-<h1 className="text-[28px] font-extrabold leading-relaxed text-[#CEE3E9] 
-min-h-[120px] flex items-center justify-center">
-  {loading ? (
-    <span className="animate-pulse text-[#CEE3E9]">
-      Loading advice...
-    </span>
-  ) : (
-    advice?.advice
-  )}
-</h1> */}
-
-
-
-<p className="text-[#53FFAA] tracking-[4px] uppercase font-bold text-[13px] mb-6">
+<p className="text-[#53FFAA] tracking-[4px] uppercase font-bold
+ text-[13px] mb-6">
   {advice ? (
     `Advice #${advice.id}`
   ) : (
@@ -77,7 +45,8 @@ min-h-[120px] flex items-center justify-center">
   )}
 </p>
 
-<h1 className="text-[28px] font-extrabold leading-relaxed text-[#CEE3E9] min-h-[120px] flex items-center justify-center">
+<h1 className="text-[28px] font-extrabold leading-relaxed 
+text-[#CEE3E9] min-h-[120px] flex items-center justify-center">
   {advice ? (
     advice.advice
   ) : (
