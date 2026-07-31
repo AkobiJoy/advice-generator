@@ -6,7 +6,7 @@ import SearchAdvice from "./pages/SearchAdvice";
 function App() {
   return (
     <div className="min-h-screen bg-[#202733] text-white">
-      <nav className="flex justify-center gap-6 py-6">
+      <nav className="flex justify-center gap-6 py-6 px-6 md:px-0">
         <Link
           to="/"
           className="bg-green-500 px-4 py-2 rounded hover:bg-green-600"
