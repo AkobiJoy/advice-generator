@@ -1,4 +1,4 @@
-import React from 'react'
+
 import AdviceCard from '../components/AdviceCard'
 
 function Home() {
