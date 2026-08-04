@@ -46,3 +46,10 @@ export interface SearchAdviceResponse {
   query: string;
   slips: SearchAdviceSlip[];
 }
+
+export interface MessageResponse {
+  message: {
+    type: string;
+    text: string;
+  };
+}

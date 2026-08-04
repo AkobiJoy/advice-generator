@@ -5,7 +5,7 @@ function Home() {
   return (
     <main 
     className="
-    min-h-screen bg-[#202632] flex items-center justify-center
+     bg-[#202632] mt-8  flex items-center justify-center
      px-6 md:px-0
      ">
     <AdviceCard />

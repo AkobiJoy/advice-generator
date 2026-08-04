@@ -35,6 +35,14 @@ getAdvice();
     <div className="w-full max-w-[540px] bg-[#313A49] rounded-2xl 
     px-8 pt-10 pb-16 text-center shadow-xl relative">
     
+  <h1
+          className="text-[#53FFAA] text-center text-xl md:text-2xl 
+        font-bold mb-6"
+        >
+          Random Advice 
+        </h1>
+
+
 
 <p className="text-[#53FFAA] tracking-[4px] uppercase font-bold
  text-[13px] mb-6">

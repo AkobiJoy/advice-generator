@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { AdviceByIdResponse } from "../types/advice";
-import { FaDice } from "react-icons/fa";
+import { FaFingerprint } from "react-icons/fa";
 
 function AdviceById() {
   const [id, setId] = useState("");
@@ -47,13 +47,16 @@ function AdviceById() {
 
   return (
     <main
-      className="min-h-screen bg-[#202632] flex items-center 
+      className="mt-8  bg-[#202632] flex items-center 
     justify-center px-6 md:px-0"
     >
+
+      
       <div
         className="w-full max-w-[540px] bg-[#313A49] rounded-2xl 
     px-8 pt-10 pb-16 text-center shadow-xl relative"
       >
+        
         <h1
           className="text-[#53FFAA] text-center text-xl md:text-2xl 
         font-bold mb-6"
@@ -83,7 +86,7 @@ function AdviceById() {
 </p> */}
 
 
-        {advice && (
+        {/* {advice && (
   <button
     onClick={() => {
       setAdvice(null);
@@ -94,7 +97,7 @@ function AdviceById() {
   >
     Get Another Advice
   </button>
-)}
+)} */}
 
         <h1 className="text-[28px] font-extrabold leading-relaxed text-[#CEE3E9] min-h-[120px] flex items-center justify-center">
           {loading ? (
@@ -110,7 +113,8 @@ function AdviceById() {
         <input
           type="number"
           min="1"
-          placeholder="Enter Advice Id"
+          // placeholder="Enter Advice Id"
+          placeholder="Enter an advice ID (e.g. 117)"
           value={id}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
@@ -125,7 +129,7 @@ function AdviceById() {
         />
         )}
 
-        <button
+        {/* <button
           onClick={() => {
     if (advice) {
       setAdvice(null);
@@ -147,14 +151,87 @@ function AdviceById() {
   }`}
 >
   <FaDice
+  <FaFingerprint
+  <FaHashtag
     className={`text-black text-2xl ${
       loading ? "animate-spin" : ""
     }`}
   />
           
-        </button>
+        </button> */}
+
+
+
+
+{/* 
+        <div className="mt-8">
+  <button
+    onClick={() => {
+      if (advice) {
+        setAdvice(null);
+        setId("");
+        setError("");
+        return;
+      }
+
+      getAdviceById();
+    }}
+    disabled={loading}
+    className={`w-full max-w-2xs py-3 rounded-lg font-bold transition-all duration-300 
+      ${
+      loading
+        ? "bg-green-400 cursor-not-allowed"
+        : "bg-[#53FFAA] text-black hover:shadow-[0_0_7px_#53FFAA]"
+    }`}
+  >
+    {loading
+      ? "Finding Advice..."
+      : advice
+      ? "Find Another Advice"
+      : "Find Advice"}
+  </button>
+</div> */}
+
+
+
+{!loading && (
+  <div className="mt-8">
+    <button
+      onClick={() => {
+        if (advice) {
+          setAdvice(null);
+          setId("");
+          setError("");
+          return;
+        }
+
+        getAdviceById();
+      }}
+      className="w-full max-w-xs py-3 rounded-lg font-bold
+      bg-[#53FFAA] text-black hover:shadow-[0_0_7px_#53FFAA]
+      transition-all duration-300"
+    >
+      {advice ? "Find Another Advice" : "Find Advice"}
+    </button>
+  </div>
+)}
 
         {error && <p className="text-red-400 text-center mt-4">{error}</p>}
+
+
+        {loading && (
+  <div
+    className="absolute bottom-[-1.5rem] left-1/2 -translate-x-1/2
+    w-12 h-12 rounded-full bg-[#53FFAA]
+    flex items-center justify-center shadow-[0_0_25px_#53FFAA]"
+  >
+    <FaFingerprint className="text-black text-xl animate-spin" />
+  </div>
+)}
+
+
+
+
       </div>
     </main>
   );
