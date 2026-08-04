@@ -62,7 +62,7 @@ function SearchAdvice() {
     setHasSearched(false);
   };
   return (
-    <main className="mt-8 bg-[#202632] flex items-center justify-center px-6 md:px-0">
+    <main className="pt-8 bg-[#202632] flex items-center justify-center px-6 md:px-0">
       <div
         className="w-full max-w-[540px] bg-[#313A49] rounded-2xl
       px-8 pt-10 pb-16 text-center shadow-xl relative"

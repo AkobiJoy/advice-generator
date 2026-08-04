@@ -7,7 +7,7 @@ function AdviceById() {
   const [advice, setAdvice] = useState<AdviceByIdResponse["slip"] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-//   const [hasSearched, setHasSearched] = useState(false);
+  //   const [hasSearched, setHasSearched] = useState(false);
 
   const getAdviceById = async () => {
     if (!id) {
@@ -21,7 +21,6 @@ function AdviceById() {
     setAdvice(null);
     setError("");
     //   setHasSearched(false);
-    
 
     try {
       const response = await fetch(`https://api.adviceslip.com/advice/${id}`);
@@ -47,16 +46,13 @@ function AdviceById() {
 
   return (
     <main
-      className="mt-8  bg-[#202632] flex items-center 
+      className="pt-8  bg-[#202632] flex items-center 
     justify-center px-6 md:px-0"
     >
-
-      
       <div
         className="w-full max-w-[540px] bg-[#313A49] rounded-2xl 
     px-8 pt-10 pb-16 text-center shadow-xl relative"
       >
-        
         <h1
           className="text-[#53FFAA] text-center text-xl md:text-2xl 
         font-bold mb-6"
@@ -72,7 +68,6 @@ function AdviceById() {
           )}
         </p>
 
-
         {/* <p className="text-[#53FFAA] tracking-[4px] uppercase font-bold text-[13px] mb-6">
   {!hasSearched && id ? (
     `Advice #${id}`
@@ -84,7 +79,6 @@ function AdviceById() {
     <span className="animate-pulse">Advice #...</span>
   )}
 </p> */}
-
 
         {/* {advice && (
   <button
@@ -107,26 +101,24 @@ function AdviceById() {
           )}
         </h1>
 
-
-
-{!advice && (
-        <input
-          type="number"
-          min="1"
-          // placeholder="Enter Advice Id"
-          placeholder="Enter an advice ID (e.g. 117)"
-          value={id}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              getAdviceById();
-            }
-          }}
-          onChange={(e) => {
-            setId(e.target.value);
-            setError("");
-          }}
-          className="w-full p-3 rounded-lg text-white outline-none"
-        />
+        {!advice && (
+          <input
+            type="number"
+            min="1"
+            // placeholder="Enter Advice Id"
+            placeholder="Enter an advice ID (e.g. 117)"
+            value={id}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                getAdviceById();
+              }
+            }}
+            onChange={(e) => {
+              setId(e.target.value);
+              setError("");
+            }}
+            className="w-full p-3 rounded-lg text-white outline-none"
+          />
         )}
 
         {/* <button
@@ -160,10 +152,7 @@ function AdviceById() {
           
         </button> */}
 
-
-
-
-{/* 
+        {/* 
         <div className="mt-8">
   <button
     onClick={() => {
@@ -192,46 +181,39 @@ function AdviceById() {
   </button>
 </div> */}
 
+        {!loading && (
+          <div className="mt-8">
+            <button
+              onClick={() => {
+                if (advice) {
+                  setAdvice(null);
+                  setId("");
+                  setError("");
+                  return;
+                }
 
-
-{!loading && (
-  <div className="mt-8">
-    <button
-      onClick={() => {
-        if (advice) {
-          setAdvice(null);
-          setId("");
-          setError("");
-          return;
-        }
-
-        getAdviceById();
-      }}
-      className="w-full max-w-xs py-3 rounded-lg font-bold
+                getAdviceById();
+              }}
+              className="w-full max-w-xs py-3 rounded-lg font-bold
       bg-[#53FFAA] text-black hover:shadow-[0_0_7px_#53FFAA]
       transition-all duration-300"
-    >
-      {advice ? "Find Another Advice" : "Find Advice"}
-    </button>
-  </div>
-)}
+            >
+              {advice ? "Find Another Advice" : "Find Advice"}
+            </button>
+          </div>
+        )}
 
         {error && <p className="text-red-400 text-center mt-4">{error}</p>}
 
-
         {loading && (
-  <div
-    className="absolute bottom-[-1.5rem] left-1/2 -translate-x-1/2
+          <div
+            className="absolute bottom-[-1.5rem] left-1/2 -translate-x-1/2
     w-12 h-12 rounded-full bg-[#53FFAA]
     flex items-center justify-center shadow-[0_0_25px_#53FFAA]"
-  >
-    <FaFingerprint className="text-black text-xl animate-spin" />
-  </div>
-)}
-
-
-
-
+          >
+            <FaFingerprint className="text-black text-xl animate-spin" />
+          </div>
+        )}
       </div>
     </main>
   );
